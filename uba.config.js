@@ -100,6 +100,10 @@ const devConfig = {
     new OpenBrowserPlugin({
       url: `http://${svrConfig.host}:${svrConfig.port}`
     }),
+    new webpack.DefinePlugin({
+      '__DEV__' : true,
+      '__PROD__' : false
+    }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
@@ -194,7 +198,9 @@ const prodConfig = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
-      }
+      },
+      '__DEV__' : false,
+      '__PROD__' : true
     }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
