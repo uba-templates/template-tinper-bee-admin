@@ -54,6 +54,6 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "tinper-bee": "0.4.3"
+    "tinper-bee": "0.6.2"
   }
 }

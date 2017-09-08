@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Navbar, Icon } from 'tinper-bee';
+import { Navbar, Icon,Menu } from 'tinper-bee';
 import { Link } from 'react-router';
 
 import './index.css';
 
-const Menu = Navbar.Menu;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -22,7 +21,7 @@ class Menus extends Component {
 	  }
 	render(){
 		const { toggle } = this.props;
-		return( 
+		return(
 			<Menu onClick={this.handleClick.bind(this)}
 		        defaultOpenKeys={['demo3sub1']}
 		        selectedKeys={[this.state.current]}
