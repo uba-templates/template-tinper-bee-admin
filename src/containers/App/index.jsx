@@ -6,7 +6,7 @@ import {Con, Row, Col, Icon} from 'tinper-bee';
 import classnames from 'classnames';;
 
 import './index.css';
-import 'tinper-bee/assets/tinper-bee.css';
+
 
 class App extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class App extends Component {
                             <Icon type="uf-iuap-col" className="nav-icon" />
                         ) : (
                             <img
-                                src="http://design.yyuap.com/logos/logox.png"
+                                src="//design.yonyoucloud.com/static/img/designer/logo.png"
                             />
                         )
                     }

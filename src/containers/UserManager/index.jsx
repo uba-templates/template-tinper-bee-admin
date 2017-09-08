@@ -19,29 +19,31 @@ import {
     Checkbox
 } from 'tinper-bee';
 
+
 import './index.css';
 
 const Menu = Navbar.Menu;
 
+const { ColumnGroup, Column } = Table;
 
 const userData = [
-    {id: 0, name: '用友采购云', nickname: 'sale', date: '2017-04-19', phone: '30555', key: 0},
-    {id: 1, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '68888', key: 1},
-    {id: 2, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '28889', key: 2},
-    {id: 3, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '36666', key: 3},
-    {id: 4, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '25777', key: 4},
-    {id: 5, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '68888', key: 5},
-    {id: 6, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '28889', key: 6},
-    {id: 7, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '36666', key: 7},
-    {id: 8, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '25777', key: 8},
-    {id: 9, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '68888', key: 9},
-    {id: 10, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '28889', key: 10},
-    {id: 11, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '36666', key: 11},
-    {id: 12, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '25777', key: 12},
-    {id: 13, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '68888', key: 13},
-    {id: 14, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '28889', key: 14},
-    {id: 15, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '36666', key: 15},
-    {id: 16, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '25777', key: 16}
+    {id: 0, name: '用友采购云', nickname: 'sale', date: '2017-04-19', phone: '13588776655',email: 'wangwj@yonyou.com', key: 0},
+    {id: 1, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 1},
+    {id: 2, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 2},
+    {id: 3, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 3},
+    {id: 4, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 4},
+    {id: 5, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 5},
+    {id: 6, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 6},
+    {id: 7, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 7},
+    {id: 8, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 8},
+    {id: 9, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 9},
+    {id: 10, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 10},
+    {id: 11, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 11},
+    {id: 12, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 12},
+    {id: 13, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 13},
+    {id: 14, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 14},
+    {id: 15, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 15},
+    {id: 16, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 16}
 ];
 
 
@@ -67,15 +69,20 @@ class UserManager extends Component {
         const self = this;
         this.columns = [
             {
-                title: <Checkbox onChange={ this.handleCheckAll } />, dataIndex: 'id', key: 'id', className: 'table-checkbox', width: 50, render (text,record) {
+                title: <Checkbox onChange={ this.handleCheckAll }/>,
+                dataIndex: 'id',
+                key: 'id',
+                className: 'table-checkbox',
+                width: 50,
+                render (text, record) {
                     let checked = false;
-                    const { checkedAry } = self.state;
-                    if(checkedAry.indexOf(text) > -1){
+                    const {checkedAry} = self.state;
+                    if (checkedAry.indexOf(text) > -1) {
                         checked = true;
                     }
 
-                    return <Checkbox checked={ checked } onChange={ self.handleCheck(text) } />;
-            }
+                    return <Checkbox checked={ checked } onChange={ self.handleCheck(text) }/>;
+                }
             },
             {title: '姓名', dataIndex: 'name', key: 'name'},
             {
@@ -89,8 +96,9 @@ class UserManager extends Component {
                 title: '操作', dataIndex: 'id', key: 'control', render(text, record, index) {
                 return (
                     <span className="control">
-                        <Icon type="uf-pencil-s" onClick={ self.handleEdit(record) } />
-                        <Popconfirm trigger="click" onClose={ self.handleDelete(record.id) }  placement="bottom" content={"确认要删除吗？"}>
+                        <Icon type="uf-pencil-s" onClick={ self.handleEdit(record) }/>
+                        <Popconfirm trigger="click" onClose={ self.handleDelete(record.id) } placement="bottom"
+                                    content={"确认要删除吗？"}>
                             <Icon type="uf-del"/>
                         </Popconfirm>
                     </span>
@@ -105,14 +113,14 @@ class UserManager extends Component {
      * @param e
      */
     handleCheckAll = () => {
-        let { checkedAry, checkedAll, data } = this.state;
+        let {checkedAry, checkedAll, data} = this.state;
         checkedAry = [];
-        if(!checkedAll){
-            data.forEach( (item) => {
+        if (!checkedAll) {
+            data.forEach((item) => {
                 checkedAry.push(item.id);
             })
             checkedAll = true;
-        }else{
+        } else {
             checkedAll = false;
         }
         this.setState({
@@ -128,12 +136,12 @@ class UserManager extends Component {
      */
     handleCheck = (id) => {
         return () => {
-            let { checkedAry } = this.state;
-            if(checkedAry.indexOf(id) > -1){
+            let {checkedAry} = this.state;
+            if (checkedAry.indexOf(id) > -1) {
                 checkedAry = checkedAry.filter((item) => {
                     return item !== id;
                 })
-            }else{
+            } else {
                 checkedAry.push(id);
             }
             this.setState({
@@ -214,20 +222,20 @@ class UserManager extends Component {
      * 添加用户弹出框确认事件
      */
     modalEnsure = () => {
-        let { data, edit, userName, userPhone, userNickName } = this.state;
+        let {data, edit, userName, userPhone, userNickName} = this.state;
 
         let len = data.length;
         let newDate = new Date();
         let date = `${newDate.getFullYear()}-${newDate.getMonth()}-${newDate.getDate()}`;
-        if(edit){
+        if (edit) {
             data.forEach((item) => {
-                if(item.id === this.editId){
+                if (item.id === this.editId) {
                     item.name = userName;
                     item.phone = userPhone;
                     item.nickname = userNickName;
                 }
             })
-        }else{
+        } else {
             let userObj = {
                 id: len + 1,
                 name: userName,
@@ -269,11 +277,11 @@ class UserManager extends Component {
      */
     handleDelete = (id) => {
         return () => {
-            let { data, activePage } = this.state;
-            data = data.filter( (item) => {
+            let {data, activePage} = this.state;
+            data = data.filter((item) => {
                 return item.id !== id;
             });
-            let showData = data.splice(10*(activePage - 1)+1, 10*activePage);
+            let showData = data.splice(10 * (activePage - 1) + 1, 10 * activePage);
             this.setState({
                 showData
             })
@@ -297,8 +305,8 @@ class UserManager extends Component {
      * 删除多用户
      */
     deleteUsers = () => {
-        let { data, checkedAry } = this.state;
-        data = data.filter( (item) => {
+        let {data, checkedAry} = this.state;
+        data = data.filter((item) => {
             return checkedAry.indexOf(item.id) <= -1;
         });
 
@@ -308,15 +316,15 @@ class UserManager extends Component {
     }
 
     handleSearch = () => {
-        let { searchValue, searchKey, data } = this.state;
+        let {searchValue, searchKey, data} = this.state;
         let searchRegExp = new RegExp(searchValue, 'ig');
-        if(searchValue == ""){
+        if (searchValue == "") {
             return this.setState({
                 data: userData
             })
         }
 
-        data = data.filter( (item) => {
+        data = data.filter((item) => {
             return searchRegExp.test(item[searchKey])
         });
 
@@ -324,6 +332,53 @@ class UserManager extends Component {
             showData: data
         })
 
+    }
+
+    renderCheckboxCol = (text, rec) => {
+        let checked = false;
+        const {checkedAry} = this.state;
+        if (checkedAry.indexOf(text) > -1) {
+            checked = true;
+        }
+
+        return <Checkbox checked={ checked } onChange={ this.handleCheck(text) }/>;
+    }
+
+    renderControl = (text, record) => {
+        return (
+            <div className="control">
+                <Icon
+                    type="uf-pencil-s"
+                    onClick={ this.handleEdit(record) }
+                />
+                <Popconfirm
+                    trigger="click"
+                    onClose={ this.handleDelete(record.id) }
+                    placement="bottom"
+                    content={"确认要删除吗？"}>
+                    <Icon type="uf-del"/>
+                </Popconfirm>
+            </div>
+        )
+    }
+
+    renderEmailOrPhone = (type) => (text) => {
+        switch(type){
+            case 'phone':
+                return (
+                    <div>
+                    <Icon className="blue-500" type="uf-mobile" />
+                        { text }
+                </div>
+                );
+            case 'email':
+                return (
+                    <div>
+                        <Icon className="red-500" type="uf-mail" />
+                        { text }
+                    </div>
+                )
+        }
     }
 
     render() {
@@ -367,9 +422,54 @@ class UserManager extends Component {
 
                         <Table
                             className="user-table bordered"
-                            columns={ this.columns }
                             data={ this.state.showData }
-                        />
+                        >
+                            <Column
+                                title={<Checkbox onChange={ this.handleCheckAll }/>}
+                                dataIndex="id"
+                                key="id"
+                                className='table-checkbox'
+                                width={50}
+                                render={ this.renderCheckboxCol }
+                            />
+                            <ColumnGroup title="个人信息">
+                                <Column
+                                    title="姓名"
+                                    dataIndex="name"
+                                    key="name"
+                                />
+                                <Column
+                                    title="花名"
+                                    dataIndex="nickname"
+                                    key="nickname"
+                                />
+                            </ColumnGroup>
+                            <ColumnGroup title="联系方式">
+                                <Column
+                                    title="手机号"
+                                    dataIndex="phone"
+                                    key="phone"
+                                    render={ this.renderEmailOrPhone('phone') }
+                                />
+                                <Column
+                                    title="邮箱"
+                                    dataIndex="email"
+                                    key="email"
+                                    render={ this.renderEmailOrPhone('email') }
+                                />
+                            </ColumnGroup>
+                            <Column
+                                title="入职日期"
+                                dataIndex="date"
+                                key="date"
+                            />
+                            <Column
+                                title="操作"
+                                dataIndex="id"
+                                key="control"
+                                render={ this.renderControl }
+                            />
+                        </Table>
                         <div className="text-center">
                             <Pagination
                                 first
@@ -380,15 +480,15 @@ class UserManager extends Component {
                                 items={20}
                                 maxButtons={5}
                                 activePage={this.state.activePage}
-                                onSelect={this.handlePageSelect} />
+                                onSelect={this.handlePageSelect}/>
                         </div>
 
                     </div>
                 </Col>
                 <Modal
-                    show = { this.state.showModal }
-                    onHide = { this.modalClose }
-                    style={{ width: 450}}
+                    show={ this.state.showModal }
+                    onHide={ this.modalClose }
+                    style={{width: 450}}
                 >
                     <Modal.Header className="text-center">
                         <Modal.Title>{ this.state.edit ? '修改信息' : '添加用户' }</Modal.Title>
@@ -426,7 +526,7 @@ class UserManager extends Component {
                             </Row>
                             <Row>
                                 <FormGroup controlId="formInlineName">
-                                    <Col sm={3}  className="text-right">
+                                    <Col sm={3} className="text-right">
                                         <Label>手机号:</Label>
                                     </Col>
                                     <Col sm={7}>
