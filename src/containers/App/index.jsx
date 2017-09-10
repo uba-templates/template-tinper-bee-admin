@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import {MyComponent} from '../../components';
-import {MyHeader} from '../../components';
-import {Menus} from '../../components';
+import {Route} from 'mirrorx'
+import Dashbroad from '../Dashbroad/index';
+import UserManager from '../UserManager';
+import Reference from '../Reference';
+import DataTable from '../DataTable';
+import MyEditor from '../Editor';
+import {MyHeader} from 'components';
+import {Menus} from 'components';
 import {Con, Row, Col, Icon} from 'tinper-bee';
-import classnames from 'classnames';;
+import classnames from 'classnames';
 
 import './index.css';
-// import  'tinper-bee/assets/tinper-bee.css';
 
 class App extends Component {
     constructor(props) {
@@ -42,7 +47,11 @@ class App extends Component {
                 <div className={classnames("content",{"toggled": toggle})}>
                     <MyHeader toggle={ toggle } onToggle={ this.handleToggle } />
                     <Con fluid={true}>
-                        { this.props.children }
+                        <Route exact path="/" component={ Dashbroad }/>
+                        <Route path="/usermanager" component={ UserManager } />
+                        <Route path="/reference" component={ Reference } />
+                        <Route path="/datatable" component={ DataTable } />
+                        <Route path="/editor" component={ MyEditor } />
                     </Con>
 
                 </div>
