@@ -1,15 +1,24 @@
 import React from 'react';
-import { render } from 'react-dom';
-import routes from './routes'
+import mirror, {render, Router} from 'mirrorx';
+import {App} from 'containers';
+
+import './index.less';
+
+mirror.defaults({
+    historyMode: 'hash'
+});
 
 const root = document.getElementById('app');
 
-if ( __DEV__ ){
-  console.log("现在是开发环境")
+if (__DEV__) {
+    console.log("现在是开发环境")
 }
 
 if (__PROD__) {
-  console.log("现在是生产环境")
+    console.log("现在是生产环境")
 }
 
-render(routes, root)
+render(
+    <Router>
+        <App />
+    </Router>, root);

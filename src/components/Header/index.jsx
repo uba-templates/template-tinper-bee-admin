@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar,FormControl, Badge, Icon } from 'tinper-bee';
+import { Navbar,FormControl, Badge, Icon,Menu } from 'tinper-bee';
 import classnames from 'classnames';
 
 import './index.css';
-
-const Menu = Navbar.Menu;
-const SubMenu = Menu.SubMenu;
 
 const NavItem = Navbar.NavItem;
 const Nav = Navbar.Nav;
@@ -51,12 +48,12 @@ class MyHeader extends Component {
 								<Icon type="comments" />
 							</NavItem>
 						    <Menu mode="horizontal" className="dropdown">
-						        <SubMenu title={<span>刘认华<Icon type="caret-down" /></span>}>
+						        <Menu.SubMenu title={<span>刘认华<Icon type="caret-down" /></span>}>
 						        	<Menu.Item key="setting:1">Option 1</Menu.Item>
 						            <Menu.Item key="setting:2">Option 2</Menu.Item>
 						            <Menu.Item key="setting:3">Option 3</Menu.Item>
 						            <Menu.Item key="setting:4">Option 4</Menu.Item>
-						        </SubMenu>
+						        </Menu.SubMenu>
 						      </Menu>
 					    </Nav>
 				</Navbar>

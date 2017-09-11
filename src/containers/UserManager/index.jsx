@@ -16,36 +16,15 @@ import {
     FormGroup,
     Button,
     Navbar,
-    Checkbox
+    Checkbox,
+    Menu
 } from 'tinper-bee';
-
 
 import './index.css';
 
-const Menu = Navbar.Menu;
-
 const { ColumnGroup, Column } = Table;
 
-const userData = [
-    {id: 0, name: '用友采购云', nickname: 'sale', date: '2017-04-19', phone: '13588776655',email: 'wangwj@yonyou.com', key: 0},
-    {id: 1, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 1},
-    {id: 2, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 2},
-    {id: 3, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 3},
-    {id: 4, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 4},
-    {id: 5, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 5},
-    {id: 6, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 6},
-    {id: 7, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 7},
-    {id: 8, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 8},
-    {id: 9, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 9},
-    {id: 10, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 10},
-    {id: 11, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 11},
-    {id: 12, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 12},
-    {id: 13, name: '用友HR云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 13},
-    {id: 14, name: '用友支付云', nickname: 'hot', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 14},
-    {id: 15, name: '用友财务云', nickname: 'test', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 15},
-    {id: 16, name: '用友建筑云', nickname: 'new', date: '2017-04-19', phone: '13588776655', email: 'wangwj@yonyou.com',key: 16}
-];
-
+import { USER_DATA } from '../../constant';
 
 class UserManager extends Component {
     constructor(props) {
@@ -54,8 +33,8 @@ class UserManager extends Component {
             searchKey: 'name',
             showModal: false,
             activePage: 1,
-            data: userData,
-            showData: userData.slice(0, 10),
+            data: USER_DATA,
+            showData: USER_DATA.slice(0, 10),
             userName: '',
             userPhone: '',
             userNickName: '',
@@ -96,9 +75,15 @@ class UserManager extends Component {
                 title: '操作', dataIndex: 'id', key: 'control', render(text, record, index) {
                 return (
                     <span className="control">
-                        <Icon type="uf-pencil-s" onClick={ self.handleEdit(record) }/>
-                        <Popconfirm trigger="click" onClose={ self.handleDelete(record.id) } placement="bottom"
-                                    content={"确认要删除吗？"}>
+                        <Icon
+                            type="uf-pencil-s"
+                            onClick={ self.handleEdit(record) }
+                        />
+                        <Popconfirm
+                            trigger="click"
+                            onClose={ self.handleDelete(record.id) }
+                            placement="bottom"
+                            content={"确认要删除吗？"}>
                             <Icon type="uf-del"/>
                         </Popconfirm>
                     </span>
@@ -272,7 +257,7 @@ class UserManager extends Component {
 
     /**
      * 删除用户
-     * @param index 用户当前索引
+     * @param id 用户当前索引
      * @returns {function()}
      */
     handleDelete = (id) => {
@@ -320,7 +305,7 @@ class UserManager extends Component {
         let searchRegExp = new RegExp(searchValue, 'ig');
         if (searchValue == "") {
             return this.setState({
-                data: userData
+                data: USER_DATA
             })
         }
 

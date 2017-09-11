@@ -13,74 +13,26 @@ import {
     Popconfirm,
     Pagination,
     InputGroup,
+    Notification
 } from 'tinper-bee';
 
 
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/TabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import Tabs, { TabPane } from 'bee-tabs';
+import TabContent from 'bee-tabs/build/TabContent';
+import ScrollableInkTabBar from 'bee-tabs/build/ScrollableInkTabBar';
 
-import 'rc-tabs/assets/index.css';
+import { SIMPLE_REFER_DATA } from '../../constant';
 
 import './index.css';
 
-const tableData = [
-    {
-        "pk_bankdoc": "",
-        "bd_bankaccsub.accnum": "0252001300000156",
-        "refname": "贵州银行00156人民币活期户",
-        "pid": "null",
-        "refpk": "1001A11000000002I336",
-        "id": "0252001300000156",
-        "pk_currtype": "人民币",
-        "isLeaf": "true",
-        "acctype": "活期",
-        "bd_bankaccbas.pk_bankaccbas": "贵州银行00156",
-        "refcode": "0252001300000156",
-        "bd_bankaccbas.code": "0252001300000156",
-        "bd_bankaccsub.accname": "贵州银行00156",
-        "pk_banktype": "贵州银行"
-    },
-    {
-        "pk_bankdoc": "",
-        "bd_bankaccsub.accnum": "133024064168",
-        "refname": "中国银行64168人民币活期户",
-        "pid": "null",
-        "refpk": "1001A11000000002I339",
-        "id": "133024064168",
-        "pk_currtype": "人民币",
-        "isLeaf": "true",
-        "acctype": "活期",
-        "bd_bankaccbas.pk_bankaccbas": "中国银行64168",
-        "refcode": "133024064168",
-        "bd_bankaccbas.code": "133024064168",
-        "bd_bankaccsub.accname": "中国银行64168",
-        "pk_banktype": "中国银行"
-    },
-    {
-        "pk_bankdoc": "",
-        "bd_bankaccsub.accnum": "2272010001201100090236.",
-        "refname": "茅台农商银行90236人民币活期户",
-        "pid": "null",
-        "refpk": "1001A11000000002I33C",
-        "id": "2272010001201100090236.",
-        "pk_currtype": "人民币",
-        "isLeaf": "true",
-        "acctype": "活期",
-        "bd_bankaccbas.pk_bankaccbas": "茅台农商银行90236",
-        "refcode": "2272010001201100090236.",
-        "bd_bankaccbas.code": "2272010001201100090236.",
-        "bd_bankaccsub.accname": "茅台农商银行90236",
-        "pk_banktype": "茅台农商银行营业部"
-    }
-];
+const notification = Notification.newInstance({position: 'bottomRight'});
 
 class SimpleReference extends Component {
     constructor(props){
         super(props);
         this.state = {
             show: false,
-            data: tableData,
+            data: SIMPLE_REFER_DATA,
             commonData: [],
             selectValue: "",
             inputValue: ""
@@ -135,6 +87,10 @@ class SimpleReference extends Component {
                 commonData: data
             });
             e.stopPropagation();
+            notification.notice({
+                content: <span>添加成功</span>,
+                color: 'light'
+            });
         }
     }
     handleDelete (index) {

@@ -90,7 +90,6 @@ const devConfig = {
         }]
     },
     plugins: [
-
         new ExtractTextPlugin({
             filename: "[name].[hash].css"
         }),
@@ -98,6 +97,9 @@ const devConfig = {
             url: `http://${svrConfig.host}:${svrConfig.port}`
         }),
         new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('development')
+            },
             '__DEV__': true,
             '__PROD__': false
         }),
@@ -113,10 +115,11 @@ const devConfig = {
     ],
     resolve: {
         extensions: [
-            ".js", "jsx"
+            ".js", ".jsx"
         ],
         alias: {
             components: path.resolve(__dirname, "src/components/"),
+            containers: path.resolve(__dirname, "src/containers/"),
             assets: path.resolve(__dirname, "src/assets/"),
             pages: path.resolve(__dirname, "src/pages/")
         }
@@ -210,10 +213,11 @@ const prodConfig = {
     ],
     resolve: {
         extensions: [
-            ".js", "jsx"
+            ".js", ".jsx"
         ],
         alias: {
             components: path.resolve(__dirname, "src/components/"),
+            containers: path.resolve(__dirname, "src/containers/"),
             assets: path.resolve(__dirname, "src/assets/"),
             pages: path.resolve(__dirname, "src/pages/")
         }
