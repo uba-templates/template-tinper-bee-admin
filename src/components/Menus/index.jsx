@@ -54,7 +54,7 @@ class Menus extends Component {
 							{/*Editor 文本编辑*/}
 						{/*</Link>*/}
 					{/*</Menu.Item>*/}
-					<Menu.Item key="10">From 表单校验</Menu.Item>
+					{/*<Menu.Item key="10">From 表单校验</Menu.Item>*/}
 				</SubMenu>
 		      </Menu>
 		)
