@@ -47,7 +47,8 @@ const devConfig = {
     },
     externals: {
         "react": "React",
-        "react-dom": "ReactDOM"
+        "react-dom": "ReactDOM",
+        "prop-types": "PropTypes"
     },
     module: {
         rules: [{
