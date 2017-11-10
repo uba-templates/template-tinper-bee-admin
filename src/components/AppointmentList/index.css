@@ -1,0 +1,47 @@
+.userInfoTit{
+	display: inline-block;
+	height: 40px;
+	margin:20px 0 0 0;
+	font-weight: bold;
+	line-height: 40px;
+	color:#494949;
+}
+.AppointTable td,.AppointTable th{
+	border:1px solid #c1c1c1;
+}
+.AppointTable th{
+	background: #535353;
+	color:#fff;
+	padding: 10px 0 10px 12px;
+	font-size: 12px;
+}
+.AppointTable td{
+	padding:17px 0 17px 12px;
+	color: #333333;
+}
+.AppointTable tr:nth-child(odd){
+	background: #ebebeb;
+}
+#btnGroup button:hover{
+	background: #1e88e5;
+}
+.firstBtn,.lastBtn{
+	border-radius:17px;
+}
+.header{
+	position: relative;
+}
+#btnGroup{
+	position: absolute;
+	right: 200px;
+}
+#btnGroup2{
+	position: absolute;
+	right: 30px;
+}
+#btnGroup2 button{
+	margin-top: 3px;
+}
+a{
+	color:#0d79ff;
+}

@@ -6,6 +6,7 @@ import UserManager from '../UserManager';
 import Reference from '../Reference';
 import DataTable from '../DataTable';
 import MyEditor from '../Editor';
+import UserInfo from '../UserInfo';
 import {MyHeader} from 'components';
 import {Menus} from 'components';
 import {Con, Row, Col, Icon} from 'tinper-bee';
@@ -52,6 +53,7 @@ class App extends Component {
                         <Route path="/reference" component={ Reference } />
                         <Route path="/datatable" component={ DataTable } />
                         <Route path="/editor" component={ MyEditor } />
+                        <Route path="/userinfo" component={ UserInfo } />
                     </Con>
 
                 </div>

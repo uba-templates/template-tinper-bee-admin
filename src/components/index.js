@@ -7,6 +7,8 @@ import SimpleReference from './SimpleReference/index.jsx';
 import EditableCell from './EditTableCell/index.jsx';
 import PageLoading from './Loading/index.jsx';
 import LoadingTable from './LoadingTable/index.jsx';
+import AppointmentList from './AppointmentList/index.jsx';
+import BasicInfo from './BasicInfo/index.jsx';
 
 export {
   MyComponent,
@@ -15,5 +17,7 @@ export {
   SimpleReference,
   EditableCell,
   PageLoading,
-  LoadingTable
+  LoadingTable,
+  AppointmentList,
+  BasicInfo
 }

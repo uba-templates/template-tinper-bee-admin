@@ -56,6 +56,15 @@ class Menus extends Component {
 					{/*</Menu.Item>*/}
 					{/*<Menu.Item key="10">From 表单校验</Menu.Item>*/}
 				</SubMenu>
+				<SubMenu key="sub3" title={<span><Icon type="uf-i-c-2" />{toggle ? "" : <span>表单</span>}</span>}>
+					<Menu.Item key="10">
+						<Link to="/userinfo">
+							UserInfo 用户信息
+						</Link>
+					</Menu.Item>
+				
+			
+				</SubMenu>
 		      </Menu>
 		)
 	}

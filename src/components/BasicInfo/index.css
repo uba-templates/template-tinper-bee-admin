@@ -1,0 +1,24 @@
+#userInfo label{
+	display: inline-block;
+	width: 70px;
+	text-align: left;
+	color:#4a4a4a;
+}
+.infoCol{
+	margin-bottom: 30px;
+}
+.userInfoTit{
+	margin-bottom: 30px;
+	color: #494949;
+}
+.infoCol i{
+	color:#ef4134;
+}
+.labelTag{
+	display: inline-block;
+	width: 70px;
+	color:#4a4a4a;
+}
+.u-col-md-4{
+	margin:10px 0;
+}
